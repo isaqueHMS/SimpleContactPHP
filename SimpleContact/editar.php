@@ -29,6 +29,12 @@ if (!$contato) {
           exit;
 }
 
+// Função simples para validar telefone (exemplo: só aceita números, espaços, +, -, parênteses, mínimo 8 caracteres)
+function telefoneValido($telefone)
+{
+          return preg_match('/^\+?[\d\s\-\(\)]{8,15}$/', $telefone);
+}
+
 // Variável para mensagem de erro
 $erro = null;
 
@@ -41,6 +47,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
           // Validação básica
           if (!$nome || !$telefone || !$email) {
                     $erro = "Por favor, preencha todos os campos.";
+          } elseif (!telefoneValido($telefone)) {
+                    $erro = "Telefone inválido. Use apenas números, espaços, parênteses, traços e '+' no início.";
           } else {
                     // Verifica duplicados ignorando o próprio contato
                     $duplicado = false;
