@@ -1,0 +1,153 @@
+/* Reset básico com cobertura para pseudo-elementos */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Variáveis CSS para facilitar manutenção e temas */
+:root {
+  --primary-color: #2563eb;
+  --primary-hover: #1e4bb8;
+  --secondary-color: #e5e7eb;
+  --secondary-hover: #d1d5db;
+  --text-color: #1f2937;
+  --background-color: #f9f9f9;
+  --card-background: #ffffff;
+  --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  --border-radius: 16px;
+  --transition: all 0.3s ease;
+}
+
+/* Suporte a modo escuro */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --text-color: #e5e7eb;
+    --background-color: #1f2937;
+    --card-background: #374151;
+    --secondary-color: #4b5563;
+    --secondary-hover: #6b7280;
+  }
+}
+
+body {
+  font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  line-height: 1.5;
+  transition: var(--transition);
+}
+
+main {
+  background-color: var(--card-background);
+  width: min(95vw, 800px); /* Aumenta a largura, mas limita a 800px no máximo */
+  padding: 2rem;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+  text-align: center;
+  transition: var(--transition);
+  animation: fadeIn 0.5s ease-out;
+}
+
+h1 {
+  font-size: clamp(1.5rem, 5vw, 2rem);
+  margin-bottom: 1rem;
+  color: var(--primary-color);
+  font-weight: 600;
+}
+
+p {
+  font-size: clamp(0.9rem, 3vw, 1rem);
+  margin-bottom: 1.5rem;
+  opacity: 0.9;
+}
+
+.button-group {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 0.75rem;
+  background-color: var(--primary-color);
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: 500;
+  transition: var(--transition);
+  cursor: pointer;
+}
+
+.btn:hover, .btn:focus {
+  background-color: var(--primary-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.btn:focus {
+  outline: 2px solid var(--primary-color);
+  outline-offset: 2px;
+}
+
+.btn-secondary {
+  background-color: var(--secondary-color);
+  color: var(--primary-color);
+}
+
+.btn-secondary:hover, .btn-secondary:focus {
+  background-color: var(--secondary-hover);
+  transform: translateY(-2px);
+}
+
+footer {
+  margin-top: 3rem; /* Aumentado de 2rem para 3rem para mover o texto mais para baixo */
+  font-size: 0.85rem;
+  color: var(--text-color);
+  opacity: 0.7;
+}
+
+footer p {
+  margin-bottom: 0;
+}
+
+@media (min-width: 768px) {
+  main {
+    width: min(80vw, 500px);
+    padding: 2.5rem;
+  }
+
+  .button-group {
+    flex-direction: row;
+    justify-content: center;
+    gap: 1.5rem;
+  }
+
+  .btn {
+    width: auto;
+    padding: 0.75rem 2rem;
+  }
+}
+
+@media (forced-colors: active) {
+  .btn {
+    border: 2px solid ButtonText;
+  }
+  .btn:hover, .btn:focus {
+    background-color: Highlight;
+    color: HighlightText;
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}

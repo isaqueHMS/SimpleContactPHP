@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="SimpleContact - Faça login para gerenciar seus contatos"
+    />
+    <title>SimpleContact - Login</title>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap"
+    />
+    <link rel="stylesheet" href="styles/login.css" />
+  </head>
+  <body>
+    <main class="app-container">
+      <h1>Login</h1>
+      <p>Acesse sua conta para gerenciar seus contatos.</p>
+      <form class="form-group">
+        <div class="form-group">
+          <label for="email">E-mail</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="Digite seu e-mail"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label for="password">Senha</label>
+          <input
+            type="password"
+            id="password"
+            name="password"
+            placeholder="Digite sua senha"
+            required
+          />
+        </div>
+        <a href="list.php" class="btn">Entrar</a>
+      </form>
+      <p>
+        <a href="register.html" class="btn btn-secondary" id="register-text"
+          >Não tem conta? Cadastre-se</a
+        >
+      </p>
+      <footer>
+        <p>&copy; 2025 SimpleContact</p>
+      </footer>
+    </main>
+  </body>
+</html>

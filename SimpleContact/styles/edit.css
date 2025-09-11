@@ -1,0 +1,226 @@
+/* Reset básico */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Variáveis para cores e transições */
+:root {
+  --primary-color: #2563eb;
+  --primary-hover: #1e4bb8;
+  --secondary-color: #e5e7eb;
+  --secondary-hover: #d1d5db;
+  --text-color: #1f2937;
+  --background-color: #f9f9f9;
+  --card-background: #ffffff;
+  --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  --border-radius: 16px;
+  --transition: all 0.3s ease;
+}
+
+/* Modo escuro */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --text-color: #e5e7eb;
+    --background-color: #1f2937;
+    --card-background: #374151;
+    --secondary-color: #4b5563;
+    --secondary-hover: #6b7280;
+  }
+}
+
+/* Body e container principal */
+body {
+  font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  line-height: 1.5;
+  transition: var(--transition);
+  padding: 1rem;
+}
+
+main {
+  background-color: var(--card-background);
+  width: min(95vw, 480px);
+  padding: 2rem 2.5rem;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+  text-align: center;
+  transition: var(--transition);
+  animation: fadeIn 0.5s ease-out;
+}
+
+/* Título */
+h1 {
+  font-size: clamp(1.5rem, 5vw, 2rem);
+  margin-bottom: 2rem;
+  color: var(--primary-color);
+  font-weight: 600;
+  user-select: none;
+}
+
+/* Labels e Inputs */
+label {
+  display: block;
+  text-align: left;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: var(--text-color);
+}
+
+input[type="text"],
+input[type="email"] {
+  width: 100%;
+  padding: 0.65rem 1rem;
+  border: 2px solid var(--secondary-color);
+  border-radius: 10px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus {
+  border-color: var(--primary-color);
+  outline: none;
+  box-shadow: 0 0 8px rgba(37, 99, 235, 0.3);
+  background-color: var(--card-background);
+}
+
+label + label {
+  margin-top: 1.5rem;
+}
+
+/* Grupo de botões */
+.button-group {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+/* Botão Salvar */
+.btn-salvar {
+  flex: 1;
+  padding: 0.85rem 2rem;
+  background: linear-gradient(45deg, #2563eb, #1e4bb8);
+  color: white;
+  font-weight: 600;
+  font-size: 1.1rem;
+  border-radius: 12px;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 6px 12px rgba(37, 99, 235, 0.5);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease;
+  user-select: none;
+  text-align: center;
+}
+
+.btn-salvar:hover,
+.btn-salvar:focus {
+  background: linear-gradient(45deg, #1e4bb8, #153a8c);
+  box-shadow: 0 8px 16px rgba(30, 75, 184, 0.7);
+  transform: translateY(-3px);
+  outline: none;
+}
+
+/* Botão Cancelar (link estilizado) */
+.btn-cancelar {
+  flex: 1;
+  display: inline-block;
+  padding: 0.85rem 2rem;
+  background-color: transparent;
+  color: var(--primary-color);
+  font-weight: 600;
+  font-size: 1.1rem;
+  border: 2.5px solid var(--primary-color);
+  border-radius: 12px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+  user-select: none;
+  text-align: center;
+  line-height: 1.1;
+}
+
+.btn-cancelar:hover,
+.btn-cancelar:focus {
+  background-color: var(--primary-color);
+  color: white;
+  box-shadow: 0 4px 10px rgba(37, 99, 235, 0.4);
+  transform: translateY(-2px);
+  outline: none;
+}
+
+/* Animação fadeIn */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+/* Botão principal - salvar */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 1.5rem;
+  background-color: var(--primary-color);
+  color: white;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 1rem;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+  user-select: none;
+  min-width: 120px;
+  text-decoration: none; /* para links que viram botão */
+}
+
+.btn:hover,
+.btn:focus {
+  background-color: var(--primary-hover);
+  box-shadow: 0 4px 10px rgba(37, 99, 235, 0.5);
+  transform: translateY(-3px);
+  outline: none;
+}
+
+/* Botão secundário - cancelar */
+.btn-secondary {
+  background-color: transparent;
+  color: var(--primary-color);
+  border: 2px solid var(--primary-color);
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+  user-select: none;
+  min-width: 120px;
+  text-align: center;
+  text-decoration: none; /* para links */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-secondary:hover,
+.btn-secondary:focus {
+  background-color: var(--primary-color);
+  color: white;
+  box-shadow: 0 4px 10px rgba(37, 99, 235, 0.5);
+  transform: translateY(-2px);
+  outline: none;
+}
