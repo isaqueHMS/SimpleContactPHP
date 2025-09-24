@@ -3,7 +3,6 @@
 function telefoneValido($telefone)
 {
     // Permite dígitos, espaço, +, (), - e .
-    // Exemplo válido: +55 (11) 91234-5678
     return preg_match('/^\+?[\d\s\-\(\)\.]{8,15}$/', $telefone);
 }
 
@@ -12,6 +11,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $nome = trim($_POST['nome'] ?? '');
     $telefone = trim($_POST['telefone'] ?? '');
     $email = trim($_POST['email'] ?? '');
+    // Novos campos
+    $dataNascimento = trim($_POST['data_nascimento'] ?? '');
+    $observacoes = trim($_POST['observacoes'] ?? '');
 
     if (!$nome || !$telefone || !$email) {
         $erro = "Todos os campos são obrigatórios.";
@@ -49,6 +51,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 'nome' => $nome,
                 'telefone' => $telefone,
                 'email' => $email,
+                // Adiciona os novos campos
+                'data_nascimento' => $dataNascimento,
+                'observacoes' => $observacoes,
             ];
 
             $contatos[] = $novoContato;
@@ -88,6 +93,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <label>Email:<br />
                 <input type="email" name="email" value="<?= htmlspecialchars($_POST['email'] ?? '') ?>" required />
             </label><br /><br />
+            
+            <label>Data de Nascimento:<br />
+                <input type="date" name="data_nascimento" value="<?= htmlspecialchars($_POST['data_nascimento'] ?? '') ?>" />
+            </label><br /><br />
+            <label>Observações:<br />
+                <textarea name="observacoes"><?= htmlspecialchars($_POST['observacoes'] ?? '') ?></textarea>
+            </label><br /><br />
+            
             <button type="submit">Salvar</button>
             <a href="list.php">Cancelar</a>
         </form>

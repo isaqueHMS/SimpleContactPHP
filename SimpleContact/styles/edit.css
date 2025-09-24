@@ -224,3 +224,58 @@ label + label {
   transform: translateY(-2px);
   outline: none;
 }
+/* --- Estilos para os novos campos de formulário --- */
+
+/* Ajusta o espaçamento para os novos campos */
+form label {
+    margin-bottom: 8px;
+}
+
+/* Estiliza o campo de data e a área de texto */
+input[type="date"],
+textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    font-size: 1rem;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+textarea {
+    resize: vertical; /* Permite redimensionar apenas verticalmente */
+    min-height: 100px; /* Altura mínima para o campo de observações */
+}
+
+input[type="date"]:focus,
+textarea:focus {
+    outline: none;
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2);
+}
+
+/* --- Estilos para a exibição dos novos campos na lista --- */
+
+/* Adiciona um espaçamento entre as informações do contato */
+#lista-contatos li {
+    line-height: 1.8;
+}
+
+/* Garante que os ícones fiquem alinhados */
+#lista-contatos li span {
+    display: inline-block;
+    width: 20px;
+}
+
+/* Estilo para os ícones e texto dos novos campos */
+#lista-contatos li span:before {
+    content: '';
+}
+
+/* Exemplo de uso de ícones com emoji ou pseudo-elementos */
+#lista-contatos li strong + br,
+#lista-contatos li strong + br + br,
+#lista-contatos li strong + br + br + br {
+    display: none;
+}

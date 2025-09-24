@@ -3,7 +3,9 @@
         "id": "68c2067f12b7d",
         "nome": "ana pereira online",
         "telefone": "(41) 95678-1234",
-        "email": "ana.pereira@example.com"
+        "email": "ana.pereira@example.com",
+        "data_nascimento": "123213-02-11",
+        "observacoes": "1231313132"
     },
     {
         "id": "68c2071d29fa5",
@@ -40,5 +42,13 @@
         "nome": "Mariana Rodrigues",
         "telefone": "(11) 97654-3210",
         "email": "mariana.rodrigues@example.com"
+    },
+    {
+        "id": "68d472ad9d435",
+        "nome": "123123123",
+        "telefone": "123123123",
+        "email": "ana.pereira@examp2le.com",
+        "data_nascimento": "",
+        "observacoes": ""
     }
 ]
